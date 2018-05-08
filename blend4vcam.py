@@ -1,3 +1,0 @@
-import bpy
-
-#Test Git
