@@ -1,33 +1,31 @@
 import bpy
 import xml.etree.ElementTree as ET
-from handler import b4vReport
 
-b4vr = b4vReport()
 cameras = []
 
-class CameraCollection:
-    pass
 
-def GetCameras():
-
-    context = bpy.context
+def GetCameras(bselectedOnly, context):
     scn = context.scene
     selected_objects = context.selected_objects
-    if len(selected_objects) > 1:
+    if (bselectedOnly and len(selected_objects) > 1):
         # b4vr.type = 'WARNING'
         # b4vr.message = 'Too many objects have been selected'
         print('Too many objects have been selected')
         for obj in selected_objects:
             if obj.type != 'CAMERA':
-                print('Selection must contain only CAMERA objects')
+                print('Selection must contain only CAMERA type objects')
                 return 0
             else:
                 cameras.append(obj)
-    elif len(selected_objects) == 0:
+    elif (bselectedOnly and len(selected_objects) == 0):
         print('No camera is selected')
-    else:
-        print ('No camera is selected')
         return 0
+    else:
+        for obj in bpy.data.objects:
+            if obj.type == 'CAMERA':
+                cameras.append(obj)
+
+    return 1
 
 
 
@@ -36,7 +34,10 @@ def AssembleCameraData(cam):
     cam_projection_matrix = cam.calc_matrix_camera()
     cam_view_matrix = cam.matrix_local
     cam_world_matrix = cam.matrix_world
-
+    '''
+    CAMERA EXTRAS
+    '''
+    '''
     cam_location = cam.location
     cam_rotation = cam.rotation_euler
 
@@ -54,30 +55,30 @@ def AssembleCameraData(cam):
 
     h_fov = cam.data.angle_x
     v_fov = cam.data.angle_y
-
+    '''
     bl_camera = ET.Element('CAMERA', attrib={'name':cam.name})
-    bl_camera_pos = ET.SubElement(bl_camera, 'POSITION', attrib={   'x':str(cam.location[0]),
-                                                                    'y':str(cam.location[1]),
-                                                                    'z':str(cam.location[2])})
-
-    bl_camera_rot = ET.SubElement(bl_camera, 'ROTATION', attrib={   'x':str(cam.rotation_euler[0]),
-                                                                    'y':str(cam.rotation_euler[1]),
-                                                                    'z':str(cam.rotation_euler[2])})
-
-    bl_camera_fov =ET.SubElement(bl_camera, 'FOV', attrib={ 'h':str(h_fov),
-                                                            'v':str(v_fov)})
-
-    bl_camera_sensor =ET.SubElement(bl_camera, 'SENSOR', attrib={   'w':str(sensor_w),
-                                                                    'h':str(sensor_h)})
-
-    bl_camera_lens=ET.SubElement(bl_camera, 'LENS', attrib={    'f':str(lens_f),
-                                                                'd':str(lens_d)})
-
-    bl_camera_shift=ET.SubElement(bl_camera, 'SHIFT', attrib={  'x':str(shift_x),
-                                                                'y':str(shift_y)})
-
-    bl_camera_res = ET.SubElement(bl_camera, 'RESOLUTION', attrib={ 'w':str(res_x),
-                                                                    'h':str(res_y)})
+    # bl_camera_pos = ET.SubElement(bl_camera, 'POSITION', attrib={   'x':str(cam.location[0]),
+    #                                                                 'y':str(cam.location[1]),
+    #                                                                 'z':str(cam.location[2])})
+    #
+    # bl_camera_rot = ET.SubElement(bl_camera, 'ROTATION', attrib={   'x':str(cam.rotation_euler[0]),
+    #                                                                 'y':str(cam.rotation_euler[1]),
+    #                                                                 'z':str(cam.rotation_euler[2])})
+    #
+    # bl_camera_fov =ET.SubElement(bl_camera, 'FOV', attrib={ 'h':str(h_fov),
+    #                                                         'v':str(v_fov)})
+    #
+    # bl_camera_sensor =ET.SubElement(bl_camera, 'SENSOR', attrib={   'w':str(sensor_w),
+    #                                                                 'h':str(sensor_h)})
+    #
+    # bl_camera_lens=ET.SubElement(bl_camera, 'LENS', attrib={    'f':str(lens_f),
+    #                                                             'd':str(lens_d)})
+    #
+    # bl_camera_shift=ET.SubElement(bl_camera, 'SHIFT', attrib={  'x':str(shift_x),
+    #                                                             'y':str(shift_y)})
+    #
+    # bl_camera_res = ET.SubElement(bl_camera, 'RESOLUTION', attrib={ 'w':str(res_x),
+    #                                                                 'h':str(res_y)})
 
     bl_camera_proj_matrix = ET.SubElement(bl_camera, 'PROJ_MATRIX', attrib={'x':str(cam_projection_matrix[0][0])+';'+
                                                                                 str(cam_projection_matrix[0][1])+';'+
@@ -118,20 +119,27 @@ def AssembleCameraData(cam):
     return bl_camera
 
 
-def GetCameraData():
+def GetCameraData(filepath, bTextBlock, bMultipleF=1):
     for camera in cameras:
+        print (camera.name)
         #get all properties and create document tree
         bl_camera =  AssembleCameraData(camera)
-        xmlstr = (str(ET.tostring(bl_camera, encoding='utf8', method='xml')))
+        #Write on textblock in blender text editor
+        if (bTextBlock):
+            xmlstr = str(ET.tostring(bl_camera, encoding='unicode', method='xml'))
+            textblock = bpy.data.texts.get("blend4vcam."+camera.name)
+            if not textblock:
+                textblock = bpy.data.texts.new("blend4vcam."+camera.name)
+            textblock.clear()
+            textblock.write(xmlstr)
+        #write one file per camera object
+        if(bMultipleF):
+            filepath = filepath.replace(bpy.path.basename(filepath), '')
+            filehandle = open(filepath+"\\"+camera.name+".xml", 'wb')
+            xmlf = ET.tostring(bl_camera, encoding='utf8', method='xml')
+            filehandle.write(xmlf)
+            filehandle.close()
 
-        textblock = bpy.data.texts.get("blend4vcam."+cam.name)
-        if not textblock:
-            textblock = bpy.data.texts.new("blend4vcam."+cam.name)
-        textblock.clear()
-        textblock.write(xmlstr)
-
-
-        print (bl_camera)
 #tree = ET.ElementTree(bl_camera)
 #tree.write('xml_camera_blam.xml')
 
