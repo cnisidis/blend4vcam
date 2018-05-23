@@ -79,7 +79,9 @@ def AssembleCameraData(cam):
     #
     # bl_camera_res = ET.SubElement(bl_camera, 'RESOLUTION', attrib={ 'w':str(res_x),
     #                                                                 'h':str(res_y)})
-
+    blenerversion = bpy.app.version_string
+    #define origin software and other important notes (maybe date etc)
+    bl_camera_header =ET.SubElement(bl_camera, 'HEADER', attrib={'sw':'Blender', 'v':blenerversion})
     bl_camera_proj_matrix = ET.SubElement(bl_camera, 'PROJ_MATRIX', attrib={'x':str(cam_projection_matrix[0][0])+';'+
                                                                                 str(cam_projection_matrix[0][1])+';'+
                                                                                 str(cam_projection_matrix[0][2])+';'+
