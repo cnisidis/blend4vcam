@@ -30,6 +30,7 @@ from bpy.types import (Panel,
                        PropertyGroup
                        )
 from . import exporter as exp
+from . import importer as imp
 
 # if "bpy" in locals():
 #     import imp
