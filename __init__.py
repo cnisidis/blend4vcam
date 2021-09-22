@@ -2,20 +2,21 @@ bl_info = {
     "name": "blend4vcam",
     "description": "vvvv - blender camera exchange toolset",
     "author": "cnisidis http://nisidis.com",
-    "version": (0, 0, 1),
-    "blender": (2, 70, 0),
+    "version": (0, 0, 2),
+    "blender": (2, 93, 0),
     "location": "",
-    "warning": "", # used for warning icon and text in addons panel
+    "warning": "WIP", # used for warning icon and text in addons panel
     "wiki_url": "",
     "tracker_url": "",
-    "category": "Development"
+    "support": "TESTING",
+    "category": "Tools"
 }
 
 import bpy
 import sys
 import os
 from bpy.app.handlers import persistent
-from bpy.utils import register_module, unregister_module
+# from bpy.utils import register_module, unregister_module
 
 
 from bpy.props import (StringProperty,
@@ -141,10 +142,10 @@ class Blend4vcamBasicMenu(bpy.types.Menu):
 
 class OBJECT_PT_Blend4vcam(Panel):
     bl_idname = "OBJECT_PT_Blend4vcam"
-    bl_label = "Blend <-> 4v"
+    bl_label = "CAMERA to VVVV (XML)"
     bl_space_type = "VIEW_3D"
-    bl_region_type = "TOOLS"
-    bl_category = "Blend4V"
+    bl_region_type = "UI"
+    bl_category = "vvvv | VL"
 
     @classmethod
     def poll(self,context):
@@ -165,15 +166,32 @@ class OBJECT_PT_Blend4vcam(Panel):
         layout.operator("wm.blend4vcam")
         #layout.menu("OBJECT_MT_select_test", text="Presets", icon="SCENE")
 
+'''
+REGISTER CLASSES + TYPES
+'''
+
+classes = (
+    OP_blend4vcam_Export,
+    OBJECT_PT_Blend4vcam,
+    Blend4vcamSettings,
+    Blend4vcamBasicMenu
+
+)
+register_classes, unregister_classes = bpy.utils.register_classes_factory(classes)
+
 def register():
+   
+    register_classes()
     bpy.utils.register_module(__name__)
     bpy.types.Scene.blend4vcam = PointerProperty(type=Blend4vcamSettings)
     bpy.app.handlers.load_post.append(setDataPath)
     bpy.app.handlers.load_post.append(defineContext)
 
 def unregister():
+   
+    unregister_classes()
     bpy.utils.unregister_module(__name__)
     del bpy.types.Scene.blend4vcam
 
-if __name__ == "__main__":
-    register()
+# if __name__ == "__main__":
+#     register()
