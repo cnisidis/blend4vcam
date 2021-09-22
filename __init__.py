@@ -155,15 +155,17 @@ class OBJECT_PT_Blend4vcam(Panel):
         layout = self.layout
         scene = context.scene
         blend4vcam = scene.blend4vcam
-
-        #layout.prop(mytool, "my_bool")
-        #layout.prop(mytool, "my_enum", text="")
-        #layout.prop(mytool, "my_int")
-        layout.prop(blend4vcam, "blend4vcam_filepath")
-        layout.prop(blend4vcam, "blend4vcam_selected_only")
-        layout.prop(blend4vcam, "blend4vcam_multiple_files")
-        layout.prop(blend4vcam, "blend4vcam_write_to_textblock")
-        layout.operator("wm.blend4vcam")
+        row = layout.row()
+        subrow = layout.row(align=True)
+        subrow.prop(blend4vcam, "blend4vcam_filepath")
+        subrow = layout.row(align=True)
+        subrow.prop(blend4vcam, "blend4vcam_selected_only")
+        subrow = layout.row(align=True)
+        subrow.prop(blend4vcam, "blend4vcam_multiple_files")
+        subrow = layout.row(align=True)
+        subrow.prop(blend4vcam, "blend4vcam_write_to_textblock")
+        subrow = layout.row(align=True)
+        subrow.operator("wm.blend4vcam")
         #layout.menu("OBJECT_MT_select_test", text="Presets", icon="SCENE")
 
 '''
@@ -182,7 +184,6 @@ register_classes, unregister_classes = bpy.utils.register_classes_factory(classe
 def register():
    
     register_classes()
-    bpy.utils.register_module(__name__)
     bpy.types.Scene.blend4vcam = PointerProperty(type=Blend4vcamSettings)
     bpy.app.handlers.load_post.append(setDataPath)
     bpy.app.handlers.load_post.append(defineContext)
@@ -190,7 +191,6 @@ def register():
 def unregister():
    
     unregister_classes()
-    bpy.utils.unregister_module(__name__)
     del bpy.types.Scene.blend4vcam
 
 # if __name__ == "__main__":
