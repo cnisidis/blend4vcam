@@ -52,26 +52,26 @@ def setDataPath():
 def defineContext():
     return bpy.context
 
-class Blend4vcamSettings(PropertyGroup):
+class Blend4vcamProperties(PropertyGroup):
 
-    blend4vcam_filepath = StringProperty(
+    blend4vcam_filepath : bpy.props.StringProperty(
         name="Filepath",
         description="Define path for exported files",
         default="",
         subtype = "DIR_PATH",
         maxlen=1024,
     )
-    blend4vcam_selected_only = BoolProperty(
+    blend4vcam_selected_only = bpy.props.BoolProperty(
         name="Selected Only",
         description="Export only selected cameras",
         default = True
     )
-    blend4vcam_multiple_files = BoolProperty(
+    blend4vcam_multiple_files = bpy.props.BoolProperty(
         name="Multiple Files",
         description="If more than one cameras are selected, export them in separate files",
         default = True
     )
-    blend4vcam_write_to_textblock = BoolProperty(
+    blend4vcam_write_to_textblock = bpy.props.BoolProperty(
         name="Write To TextBlock",
         description="Write Camera Data in a Textblock instead of exporting it as a file (useful for debugging or packaging)",
         default = False
@@ -157,25 +157,25 @@ class OBJECT_PT_Blend4vcam(Panel):
         blend4vcam = scene.blend4vcam
         row = layout.row()
         subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, "blend4vcam_filepath")
+        subrow.prop(blend4vcam, name="blend4vcam_filepath")
         subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, "blend4vcam_selected_only")
+        subrow.prop(blend4vcam, name="blend4vcam_selected_only")
         subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, "blend4vcam_multiple_files")
+        subrow.prop(blend4vcam, name="blend4vcam_multiple_files")
         subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, "blend4vcam_write_to_textblock")
+        subrow.prop(blend4vcam, name="blend4vcam_write_to_textblock")
         subrow = layout.row(align=True)
         subrow.operator("wm.blend4vcam")
         #layout.menu("OBJECT_MT_select_test", text="Presets", icon="SCENE")
 
 '''
 REGISTER CLASSES + TYPES
+
 '''
 
 classes = (
     OP_blend4vcam_Export,
     OBJECT_PT_Blend4vcam,
-    Blend4vcamSettings,
     Blend4vcamBasicMenu
 
 )
@@ -184,7 +184,8 @@ register_classes, unregister_classes = bpy.utils.register_classes_factory(classe
 def register():
    
     register_classes()
-    bpy.types.Scene.blend4vcam = PointerProperty(type=Blend4vcamSettings)
+    # bpy.types.Scene.blend4vcam = PointerProperty(type=Blend4vcamProperties)
+    bpy.types.Scene.blend4vcam =  bpy.props.PointerProperty(type=Blend4vcamProperties)
     bpy.app.handlers.load_post.append(setDataPath)
     bpy.app.handlers.load_post.append(defineContext)
 
