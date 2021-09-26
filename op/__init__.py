@@ -1,10 +1,22 @@
 import bpy
+import bpy.app.handlers
+import sys
+import os
 # ------------------------------------------------------------------------
 #    operators
 # ------------------------------------------------------------------------
 
-class OP_blend4vcam_Export(bpy.types.Operator):
-    bl_idname = "wm.blend4vcam"
+class Blend4vcam_OT_Operator(bpy.types.Operator):
+
+    #@persistent
+    def setDataPath():
+        if bpy.data.is_saved:
+            blendfilepath = bpy.path.native_pathsep(bpy.data.filepath)
+        else:
+            return 0
+        return blendfilepath
+
+    bl_idname = "blend4vcam.export"
     bl_label = "Export"
 
     def execute(self, context):
@@ -21,7 +33,7 @@ class OP_blend4vcam_Export(bpy.types.Operator):
         print("Multiple Files:", bMultipleF)
         print("WriteToTextBlock:", bTextBlock)
         if (custompath=="" or custompath == None):
-            blendfilepath = setDataPath()
+            blendfilepath = self.setDataPath()
             if blendfilepath == 0:
                 self.report({'WARNING'},"Blend File must be saved")
                 return {'FINISHED'}
@@ -33,11 +45,8 @@ class OP_blend4vcam_Export(bpy.types.Operator):
             print(repr(custompath))
             print(os.path.isdir(repr(custompath)))
             return {'CANCELLED'}
-        context = defineContext()
-        if exp.GetCameras(bselectedOnly, context):
-            exp.GetCameraData(blendfilepath, bTextBlock, bMultipleF )
-        else:
-            return {'CANCELLED'}
+        context = bpy.context
+        
 
         '''TODO Export file or Multiple Files exp.files()
         '''
