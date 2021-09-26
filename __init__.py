@@ -16,20 +16,9 @@ import bpy
 import sys
 import os
 from bpy.app.handlers import persistent
+from ui import Blend4vcamProperties, Blend4v_PT_Blend4vcam
 # from bpy.utils import register_module, unregister_module
 
-
-from bpy.props import (StringProperty,
-                       BoolProperty,
-                       IntProperty,
-                       FloatProperty,
-                       EnumProperty,
-                       PointerProperty,
-                       )
-from bpy.types import (Panel,
-                       Operator,
-                       PropertyGroup
-                       )
 from . import exporter as exp
 from . import importer as imp
 
@@ -52,36 +41,7 @@ def setDataPath():
 def defineContext():
     return bpy.context
 
-class Blend4vcamProperties(PropertyGroup):
 
-    blend4vcam_filepath : bpy.props.StringProperty(
-        name="Filepath",
-        description="Define path for exported files",
-        default="",
-        subtype = "DIR_PATH",
-        maxlen=1024,
-    )
-    blend4vcam_selected_only = bpy.props.BoolProperty(
-        name="Selected Only",
-        description="Export only selected cameras",
-        default = True
-    )
-    blend4vcam_multiple_files = bpy.props.BoolProperty(
-        name="Multiple Files",
-        description="If more than one cameras are selected, export them in separate files",
-        default = True
-    )
-    blend4vcam_write_to_textblock = bpy.props.BoolProperty(
-        name="Write To TextBlock",
-        description="Write Camera Data in a Textblock instead of exporting it as a file (useful for debugging or packaging)",
-        default = False
-    )
-    # blend4vcam_export_path = StringProperty(
-    #   name = "Export Path",
-    #   default = default_path,
-    #   description = "Define path to export",
-    #   subtype = "DIR_PATH"
-    # )
 # ------------------------------------------------------------------------
 #    operators
 # ------------------------------------------------------------------------
@@ -140,33 +100,6 @@ class Blend4vcamBasicMenu(bpy.types.Menu):
         layout = self.layout
 
 
-class OBJECT_PT_Blend4vcam(Panel):
-    bl_idname = "OBJECT_PT_Blend4vcam"
-    bl_label = "CAMERA to VVVV (XML)"
-    bl_space_type = "VIEW_3D"
-    bl_region_type = "UI"
-    bl_category = "vvvv | VL"
-
-    @classmethod
-    def poll(self,context):
-        return context.object is not None
-
-    def draw(self, context):
-        layout = self.layout
-        scene = context.scene
-        blend4vcam = scene.blend4vcam
-        row = layout.row()
-        subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, name="blend4vcam_filepath")
-        subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, name="blend4vcam_selected_only")
-        subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, name="blend4vcam_multiple_files")
-        subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, name="blend4vcam_write_to_textblock")
-        subrow = layout.row(align=True)
-        subrow.operator("wm.blend4vcam")
-        #layout.menu("OBJECT_MT_select_test", text="Presets", icon="SCENE")
 
 '''
 REGISTER CLASSES + TYPES
@@ -175,7 +108,7 @@ REGISTER CLASSES + TYPES
 
 classes = (
     OP_blend4vcam_Export,
-    OBJECT_PT_Blend4vcam,
+    Blend4v_PT_Blend4vcam,
     Blend4vcamBasicMenu
 
 )
