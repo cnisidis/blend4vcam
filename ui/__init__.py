@@ -25,11 +25,12 @@ class Blend4vcamProperties(bpy.types.PropertyGroup):
     )
  
 class Blend4v_PT_Blend4vcam(bpy.types.Panel):
-    bl_idname = "OBJECT_PT_Blend4vcam"
+    bl_idname = "Blend4v_PT_Blend4vcam"
     bl_label = "CAMERA to VVVV (XML)"
+    bl_category = "vvvv | VL"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_category = "vvvv | VL"
+    
 
     @classmethod
     def poll(self,context):
@@ -37,17 +38,15 @@ class Blend4v_PT_Blend4vcam(bpy.types.Panel):
 
     def draw(self, context):
         layout = self.layout
-        scene = context.scene
-        blend4vcam = scene.blend4vcam
         row = layout.row()
         subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, name="blend4vcam_filepath")
+        subrow.prop(context.scene.blend4vcam, name="blend4vcam_filepath")
         subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, name="blend4vcam_selected_only")
+        subrow.prop(context.scene.blend4vcam, name="blend4vcam_selected_only")
         subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, name="blend4vcam_multiple_files")
+        subrow.prop(context.scene.blend4vcam, name="blend4vcam_multiple_files")
         subrow = layout.row(align=True)
-        subrow.prop(blend4vcam, name="blend4vcam_write_to_textblock")
+        subrow.prop(context.scene.blend4vcam, name="blend4vcam_write_to_textblock")
         subrow = layout.row(align=True)
         subrow.operator("wm.blend4vcam")
         #layout.menu("OBJECT_MT_select_test", text="Presets", icon="SCENE")
