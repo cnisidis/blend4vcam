@@ -21,25 +21,13 @@ from . import exporter as exp
 from . import importer as imp
 
 
-# ------------------------------------------------------------------------
-#    menus
-# ------------------------------------------------------------------------
-
-# class Blend4vcamBasicMenu(bpy.types.Menu):
-#     bl_idname = "OBJECT_MT_select_test"
-#     bl_label = "Select"
-
-#     def draw(self, context):
-#         layout = self.layout
-
 
 classes = (
     Blend4vcam_OT_Operator,
     Blend4v_PT_Panel,
     Blend4vcamProperties
-    #Blend4vcamBasicMenu
-
 )
+
 register_classes, unregister_classes = bpy.utils.register_classes_factory(classes)
 
 def register():
