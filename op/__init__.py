@@ -13,6 +13,8 @@ otherwise create a block
 '''
 
 
+
+
 class Blend4vcam_OT_Operator(bpy.types.Operator):
 
     bl_idname = "blend4vcam.export"
@@ -21,17 +23,27 @@ class Blend4vcam_OT_Operator(bpy.types.Operator):
     '''
     create a text block in text editor, if the block already exists then update it, if otherwise (false) create a new one
     '''
-    def CreateTBlock(update_block=True):
+    def CreateOrOpenTextBlock(self, update_block=True):
+        text_block_name = 'test'
+        text_block = None
         if update_block:
             #check if this TBlock exists
-            #update existed block
-            #else call self with update False
-            pass
+            try:
+                print("Updating New Text Block ..")
+                text_block = bpy.data.texts[text_block_name]
+                print("New Text Block Updated")
+                #update existed block
+            except KeyError:
+                #else call self with update False
+                self.CreateOrOpenTextBlock(update_block = False)
         else:
             #create new block
+            print("Creating new Text Block ...")
+            text_block = bpy.data.texts.new(text_block_name)
+            print("new text block created: " + text_block_name)
             #assign id to this block
-            pass
-        pass
+            
+        
 
     blendfilepath = None
     exporter = Exporter()
@@ -44,7 +56,7 @@ class Blend4vcam_OT_Operator(bpy.types.Operator):
             self.blendfilepath = bpy.path.native_pathsep(bpy.data.filepath)
         else:
             self.blendfilepath = None
-            print("A Text Block has been Created")
+            self.CreateOrOpenTextBlock()
 
 
 
@@ -66,6 +78,13 @@ class Blend4vcam_OT_Operator(bpy.types.Operator):
         #Exporter check
         self.exporter.isAlive()
 
+        #check if camera is selected
+
+        #check if textblock is selected
+        if bTextBlock == True:
+            self.CreateOrOpenTextBlock()
+        
+        #check custom path
         if custompath=="" or custompath == None:
             self.setDataPath()
             if self.blendfilepath == None:
@@ -82,7 +101,8 @@ class Blend4vcam_OT_Operator(bpy.types.Operator):
             return {'CANCELLED'}
         
         
-        '''TODO Export file or Multiple Files exp.files()
+        '''
+            TODO Export file or Multiple Files exp.files()
         '''
         
         
