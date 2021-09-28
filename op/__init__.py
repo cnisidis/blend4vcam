@@ -23,14 +23,14 @@ class Blend4vcam_OT_Operator(bpy.types.Operator):
     '''
     create a text block in text editor, if the block already exists then update it, if otherwise (false) create a new one
     '''
-    def CreateOrOpenTextBlock(self, update_block=True):
-        text_block_name = 'test'
+    def CreateOrOpenTextBlock(self, update_block=True, name = 'test'):
+        
         text_block = None
         if update_block:
             #check if this TBlock exists
             try:
                 print("Updating New Text Block ..")
-                text_block = bpy.data.texts[text_block_name]
+                text_block = bpy.data.texts[name]
                 print("New Text Block Updated")
                 #update existed block
             except KeyError:
@@ -39,9 +39,15 @@ class Blend4vcam_OT_Operator(bpy.types.Operator):
         else:
             #create new block
             print("Creating new Text Block ...")
-            text_block = bpy.data.texts.new(text_block_name)
-            print("new text block created: " + text_block_name)
+            text_block = bpy.data.texts.new(name)
+            print("new text block created: " + name)
             #assign id to this block
+        #bring text block in front
+        for area in bpy.context.screen.areas:
+            if area.type == "TEXT_EDITOR":
+                area.spaces[0].text = bpy.data.texts[name]
+
+            
             
         
 
