@@ -20,6 +20,9 @@ class Blend4vcam_OT_Operator(bpy.types.Operator):
     bl_idname = "blend4vcam.export"
     bl_label = "Export"
     bl_options = {'REGISTER'}
+
+    camerasData = None
+
     '''
     create a text block in text editor, if the block already exists then update it, if otherwise (false) create a new one
     '''
@@ -83,7 +86,8 @@ class Blend4vcam_OT_Operator(bpy.types.Operator):
         print("WriteToTextBlock:", bTextBlock)
         #Exporter check
         #self.exporter.isAlive()
-        self.exporter.ToXML()
+        self.camerasData = self.exporter.ToXML()
+        print(self.camerasData)
         #check if camera is selected
 
         #check if textblock is selected

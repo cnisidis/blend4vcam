@@ -8,7 +8,7 @@ class Exporter():
     def isAlive(self):
         print("Yes Exporter is Alive, fill it with content")
 
-    def ExportCameras(self, selected_objects):
+    def FilterCameras(self, selected_objects):
         cameras = []
         count_selected_objects = len(selected_objects)
         for obj in selected_objects:
@@ -19,11 +19,15 @@ class Exporter():
     def ToXML(self):
         depsgraph = bpy.context.evaluated_depsgraph_get()
         selected_objects = bpy.context.selected_objects
-
+        
         #get all possible selected cameras
         
         camera = None
-
+        for obj in selected_objects:
+            if obj.type == "CAMERA":
+                camera = obj
+            else:
+                camera = None
         if camera == None:
             print('no camera was found')
             return {'WARNING'}
