@@ -3,39 +3,22 @@ import xml.etree.ElementTree as ET
 
 class Exporter():
     
-    
+    cameras = []
 
     def isAlive(self):
         print("Yes Exporter is Alive, fill it with content")
 
     def FilterCameras(self, selected_objects):
-        cameras = []
         count_selected_objects = len(selected_objects)
         for obj in selected_objects:
             if obj.type == 'CAMERA':
-                cameras.append(obj)
+                self.cameras.append(obj)
+        
         
 
-    def ToXML(self):
+    def Dump(self, camera):
         depsgraph = bpy.context.evaluated_depsgraph_get()
-        selected_objects = bpy.context.selected_objects
         
-        #get all possible selected cameras
-        
-        camera = None
-        for obj in selected_objects:
-            if obj.type == "CAMERA":
-                camera = obj
-            else:
-                camera = None
-        if camera == None:
-            print('no camera was found')
-            return {'WARNING'}
-        elif camera.type == 'CAMERA':
-            print('camera selected: '+ camera.name)
-            
-            
-
         node = ET.Element('BL_CAMERA')
         node.attrib= {'name':camera.name}
         world_matr = camera.matrix_world.copy()
@@ -64,16 +47,8 @@ class Exporter():
         node_shift = ET.SubElement(node_data, 'SHIFT')
         node_shift.attrib = {'x': str(camera.data.shift_x), 'y': str(camera.data.shift_y)}
        
-        
-
-        '''
-        |           |
-        | MATRICES  |
-        |           |
-        '''
-
-
-
+       # | MATRICES  |
+       
         node_matrix = ET.SubElement(node, 'MATRIX')
         node_matrix.attrib = {'id':'0', 'name':'WORLD'}
         node_rows = ET.SubElement(node_matrix, 'ROWS')
@@ -101,6 +76,33 @@ class Exporter():
                 print(co)
 
         #return dump and add it to a text block or to a file
-        ET.dump(node)
+        return node
+
+
+    def ToXML(self, multiple_files=False):
+        
+        selected_objects = bpy.context.selected_objects
+        
+        #get all possible selected cameras
+        self.FilterCameras(selected_objects)
+        if len(self.cameras) > 0:
+            
+            #create cameras xml node
+            collection_node = ET.Element('CAMERAS')
+            for camera in self.cameras:
+                if multiple_files:
+                    #create new file and text block and add content
+                    pass
+                else:
+                    #create new node and add content
+                    self.Dump(camera)
+                    pass
+        else:
+            print('no camera was found')
+            return {'WARNING'}
+            
+            
+
+        
             
     
