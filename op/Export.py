@@ -18,7 +18,7 @@ class Exporter():
 
     def Dump(self, camera):
         depsgraph = bpy.context.evaluated_depsgraph_get()
-        
+
         node = ET.Element('BL_CAMERA')
         node.attrib= {'name':camera.name}
         world_matr = camera.matrix_world.copy()
@@ -76,7 +76,7 @@ class Exporter():
                 print(co)
 
         #return dump and add it to a text block or to a file
-        return node
+        return ET.dump(node)
 
 
     def ToXML(self, multiple_files=False):
