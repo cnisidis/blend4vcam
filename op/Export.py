@@ -8,9 +8,20 @@ class Exporter():
     def isAlive(self):
         print("Yes Exporter is Alive, fill it with content")
 
+    def ExportCameras(self, selected_objects):
+        cameras = []
+        count_selected_objects = len(selected_objects)
+        for obj in selected_objects:
+            if obj.type == 'CAMERA':
+                cameras.append(obj)
+        
+
     def ToXML(self):
         depsgraph = bpy.context.evaluated_depsgraph_get()
-        selected_objects = bpy.context.slected_objects
+        selected_objects = bpy.context.selected_objects
+
+        #get all possible selected cameras
+        
         camera = None
 
         if camera == None:
@@ -22,6 +33,7 @@ class Exporter():
             
 
         node = ET.Element('BL_CAMERA')
+        node.attrib= {'name':camera.name}
         world_matr = camera.matrix_world.copy()
         world_matr = world_matr.inverted()
         projection_matrix = camera.calc_matrix_camera(depsgraph)
@@ -29,18 +41,32 @@ class Exporter():
         projection_matrix.transpose()
 
         world_matr.transpose()
-        projection_matrix
-
+        
+        #RENDERER
+        node_renderer = ET.SubElement(node, 'RENDERER')
+        
         node_data = ET.SubElement(node, 'DATA')
+        #LENS PROPERTIES
         node_lens = ET.SubElement(node_data, 'LENS')
         node_lens.text = str(camera.data.lens)
         node_lens.attrib= {'unit':'mm'}
+        #CLIPPING
         node_clip = ET.SubElement(node_data, 'CLIP')
         node_clip.attrib = {'end': str(camera.data.clip_end), 'start': str(camera.data.clip_start)}
+        #CAMERA SENSOR
         node_sensor = ET.SubElement(node_data, 'SENSOR')
         node_sensor.attrib = {'width': str(camera.data.sensor_width), 'height': str(camera.data.sensor_height), 'fit':camera.data.sensor_fit }
+        #CAMERA SHIFT
         node_shift = ET.SubElement(node_data, 'SHIFT')
         node_shift.attrib = {'x': str(camera.data.shift_x), 'y': str(camera.data.shift_y)}
+       
+        
+
+        '''
+        |           |
+        | MATRICES  |
+        |           |
+        '''
 
 
 
@@ -70,6 +96,7 @@ class Exporter():
                 node_col.text = str(co)
                 print(co)
 
+        #return dump and add it to a text block or to a file
         ET.dump(node)
             
     

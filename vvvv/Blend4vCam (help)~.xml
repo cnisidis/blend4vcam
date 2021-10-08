@@ -1,0 +1,389 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta42.dtd" >
+   <PATCH nodename="D:\Projects\BLENDER\blend4vcam\vvvv\Blend4vCam (help).v4p" systemname="Blend4vCam (help)" filename="D:\Projects\BLENDER\blend4vcam\vvvv\Blend4vCam (help).v4p" scrollx="0" scrolly="840">
+   <BOUNDS type="Window" left="31020" top="2580" width="19425" height="10905">
+   </BOUNDS>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="1">
+   <BOUNDS type="Node" left="8355" top="2295" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8355" top="2295" width="1770" height="255">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="|&lt;BL_CAMERA&gt;&lt;DATA&gt;&lt;LENS unit=&quot;mm&quot;&gt;50.0&lt;/LENS&gt;&lt;CLIP end=&quot;100.0&quot; start=&quot;0.10000000149011612&quot; /&gt;&lt;SENSOR width=&quot;36.0&quot; height=&quot;24.0&quot; fit=&quot;AUTO&quot; /&gt;&lt;SHIFT x=&quot;0.0&quot; y=&quot;0.0&quot; /&gt;&lt;/DATA&gt;&lt;MATRIX id=&quot;0&quot; name=&quot;WORLD&quot;&gt;&lt;ROWS&gt;&lt;ROW id=&quot;0&quot;&gt;&lt;COL id=&quot;0&quot;&gt;-0.40035104751586914&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;-0.47813284397125244&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.7817342281341553&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;1&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.9163619875907898&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;-0.20889291167259216&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.3415329158306122&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;2&quot;&gt;&lt;COL id=&quot;0&quot;&gt;6.407502155525435e-07&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.85308438539505&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.5217732191085815&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;3&quot;&gt;&lt;COL id=&quot;0&quot;&gt;-4.439939975738525&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.6447325944900513&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-24.327754974365234&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;1.0&lt;/COL&gt;&lt;/ROW&gt;&lt;/ROWS&gt;&lt;/MATRIX&gt;&lt;MATRIX id=&quot;0&quot; name=&quot;PROJECTION&quot;&gt;&lt;ROWS&gt;&lt;ROW id=&quot;0&quot;&gt;&lt;COL id=&quot;0&quot;&gt;2.777777671813965&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;1&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;2.777777671813965&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;2&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-1.0020020008087158&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-1.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;3&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-0.20020020008087158&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;/ROWS&gt;&lt;/MATRIX&gt;&lt;/BL_CAMERA&gt;|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <PACK Name="dx11" Version="1.3.1">
+   </PACK>
+   <PACK Name="mp.dx" Version="3.1.5.0">
+   </PACK>
+   <PACK Name="mp.essentials" Version="3.1.31.0">
+   </PACK>
+   <PACK Name="vvvv-Message" Version="2.9.10">
+   </PACK>
+   <PACK Name="addonpack" Version="42.0.0">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4650" top="4980" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4650" top="4980" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11 TempTarget)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TempTarget)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="2460" top="7605" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2460" top="7605" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Buffers" visible="1">
+   </PIN>
+   <PIN pinname="Texture SizeXY" visible="1">
+   </PIN>
+   <PIN pinname="Texture ScaleXY" slicecount="2" values="1,1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   </NODE>
+   <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="2340" top="5220" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2340" top="5220" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="SizeXYZ" slicecount="3" values="2,2,2">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="8">
+   <BOUNDS type="Node" left="2010" top="5820" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   <PIN pinname="Color" slicecount="1" values="|1.00000,0.76372,0.76372,0.42043|" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="9">
+   <BOUNDS type="Node" left="3360" top="8445" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3360" top="8445" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="50700" top="2520" width="4785" height="14475">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Buffers" dstnodeid="9" dstpinname="Texture In">
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="1680" top="6930" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1680" top="6930" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Layer" dstnodeid="10" dstpinname="Layer 2">
+   </LINK>
+   <NODE systemname="AxisAndGrid (DX11)" filename="%VVVV%\packs\dx11\nodes\modules\AxisAndGrid\AxisAndGrid (DX11).v4p" nodename="AxisAndGrid (DX11)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="1860" top="6255" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Layer" dstnodeid="10" dstpinname="Layer 1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="27" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3840" top="6855" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3840" top="6855" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="512,1536">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Texture SizeXY">
+   </LINK>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="31">
+   <BOUNDS type="Node" left="1020" top="7350" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1020" top="7350" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Alignment" slicecount="1" visible="1" values="FitWidth">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Layer Out" dstnodeid="31" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="31" srcpinname="Layer Out" dstnodeid="4" dstpinname="Layer">
+   </LINK>
+   <NODE systemname="Writer (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Writer (DX11.Texture 2d)" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="5940" top="7815" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5940" top="7815" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Write" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Buffers" dstnodeid="32" dstpinname="Texture In">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="33" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="6105" top="7110" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6105" top="7110" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="render_cam.png">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="render">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Output String" dstnodeid="32" dstpinname="Filename">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="34" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7665" top="6930" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7665" top="6930" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="34" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Write">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="35" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="1455" top="4275" width="1320" height="435">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1455" top="4275" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="FitIn">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="FitOut">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Output Enum" dstnodeid="31" dstpinname="Alignment">
+   </LINK>
+   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="2160" top="4800" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2160" top="4800" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="Blend">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Render State" dstnodeid="8" dstpinname="Render State">
+   </LINK>
+   <NODE systemname="Beld4vCam (Value)" filename="vl\VVVV.Value.BL_CAM.vl" nodename="Beld4vCam (Value)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="4635" top="5775" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XML" visible="1" slicecount="1" values="|&lt;BL_CAMERA name=&quot;Camera&quot;&gt;&lt;RENDERER engine=&quot;BLENDER_EEVEE&quot; resolution_x=&quot;1920&quot; resolution_y=&quot;1080&quot; resolution_percentage=&quot;100&quot; /&gt;&lt;DATA&gt;&lt;LENS unit=&quot;mm&quot;&gt;50.0&lt;/LENS&gt;&lt;CLIP end=&quot;100.0&quot; start=&quot;0.10000000149011612&quot; /&gt;&lt;SENSOR width=&quot;36.0&quot; height=&quot;24.0&quot; fit=&quot;AUTO&quot; /&gt;&lt;SHIFT x=&quot;0.0&quot; y=&quot;0.0&quot; /&gt;&lt;/DATA&gt;&lt;MATRIX id=&quot;0&quot; name=&quot;WORLD&quot;&gt;&lt;ROWS&gt;&lt;ROW id=&quot;0&quot;&gt;&lt;COL id=&quot;0&quot;&gt;1.0000001192092896&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;-0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;1&quot;&gt;&lt;COL id=&quot;0&quot;&gt;-0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.15731291472911835&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-0.9875490665435791&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;2&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.9875489473342896&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.15731294453144073&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;3&quot;&gt;&lt;COL id=&quot;0&quot;&gt;-2.2218754291534424&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;1.0432207584381104&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-13.561348915100098&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;1.0&lt;/COL&gt;&lt;/ROW&gt;&lt;/ROWS&gt;&lt;/MATRIX&gt;&lt;MATRIX id=&quot;0&quot; name=&quot;PROJECTION&quot;&gt;&lt;ROWS&gt;&lt;ROW id=&quot;0&quot;&gt;&lt;COL id=&quot;0&quot;&gt;2.777777671813965&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;1&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;2.777777671813965&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;2&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-1.0020020008087158&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-1.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;3&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-0.20020020008087158&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;/ROWS&gt;&lt;/MATRIX&gt;&lt;/BL_CAMERA&gt;|">
+   </PIN>
+   <PIN pinname="Force" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Matrix" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Force">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="View" dstnodeid="4" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Projection" dstnodeid="4" dstpinname="Projection" linkstyle="Bezier">
+   <LINKPOINT x="4950" y="6818">
+   </LINKPOINT>
+   <LINKPOINT x="4815" y="6818">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="41">
+   <BOUNDS type="Node" left="5670" top="2145" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5670" top="2145" width="2220" height="3075">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="|&lt;BL_CAMERA name=&quot;Camera_Front&quot;&gt;&lt;RENDERER engine=&quot;BLENDER_EEVEE&quot; resolution_x=&quot;512&quot; resolution_y=&quot;1536&quot; resolution_percentage=&quot;100&quot; /&gt;&lt;DATA&gt;&lt;LENS unit=&quot;mm&quot;&gt;50.0&lt;/LENS&gt;&lt;CLIP end=&quot;100.0&quot; start=&quot;0.10000000149011612&quot; /&gt;&lt;SENSOR width=&quot;36.0&quot; height=&quot;24.0&quot; fit=&quot;AUTO&quot; /&gt;&lt;SHIFT x=&quot;0.0&quot; y=&quot;0.0&quot; /&gt;&lt;/DATA&gt;&lt;MATRIX id=&quot;0&quot; name=&quot;WORLD&quot;&gt;&lt;ROWS&gt;&lt;ROW id=&quot;0&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.9663366079330444&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0847242996096611&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.24293096363544464&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;1&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.2572813034057617&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;-0.3182205557823181&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-0.9124374985694885&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;2&quot;&gt;&lt;COL id=&quot;0&quot;&gt;7.450581485102248e-09&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.9442232847213745&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-0.32930612564086914&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;3&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.11090008169412613&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;-7.4865827560424805&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-22.528507232666016&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;1.0&lt;/COL&gt;&lt;/ROW&gt;&lt;/ROWS&gt;&lt;/MATRIX&gt;&lt;MATRIX id=&quot;0&quot; name=&quot;PROJECTION&quot;&gt;&lt;ROWS&gt;&lt;ROW id=&quot;0&quot;&gt;&lt;COL id=&quot;0&quot;&gt;2.777777671813965&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;1&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;2.777777671813965&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;2&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-1.0020020008087158&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-1.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;3&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-0.20020020008087158&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;/ROWS&gt;&lt;/MATRIX&gt;&lt;/BL_CAMERA&gt;|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="41" srcpinname="Output String" dstnodeid="2" dstpinname="XML">
+   </LINK>
+   <NODE systemname="GeometryFile (DX11.Geometry Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\assimp\VVVV.DX11.Nodes.Assimp.dll" nodename="GeometryFile (DX11.Geometry Assimp)" componentmode="Hidden" id="44">
+   <BOUNDS type="Node" left="1875" top="3210" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1875" top="3210" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Reload" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="45">
+   <BOUNDS type="Box" left="1875" top="2625" width="1980" height="255">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1875" top="2625" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="assets\BL_Template.obj">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="45" srcpinname="Output String" dstnodeid="44" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="44" srcpinname="Output" dstnodeid="8" dstpinname="Geometry">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="46">
+   <BOUNDS type="Box" left="2325" top="2070" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2325" top="2070" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="44" dstpinname="Reload">
+   </LINK>
+   <NODE id="30" nodename="IOBox (String)" componentmode="InABox" systemname="IOBox (String)" hiddenwhenlocked="0" managers="">
+   <PIN pinname="Output String" visible="1" pintype="Output">
+   </PIN>
+   <BOUNDS type="Box" left="8355" top="1905" width="1785" height="255">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8355" top="1905" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" pintype="Input" values="|&lt;BL_CAMERA name=&quot;Camera&quot;&gt;&lt;RENDERER engine=&quot;BLENDER_EEVEE&quot; resolution_x=&quot;1920&quot; resolution_y=&quot;1080&quot; resolution_percentage=&quot;100&quot; /&gt;&lt;DATA&gt;&lt;LENS unit=&quot;mm&quot;&gt;50.0&lt;/LENS&gt;&lt;CLIP end=&quot;100.0&quot; start=&quot;0.10000000149011612&quot; /&gt;&lt;SENSOR width=&quot;36.0&quot; height=&quot;24.0&quot; fit=&quot;AUTO&quot; /&gt;&lt;SHIFT x=&quot;0.0&quot; y=&quot;0.0&quot; /&gt;&lt;/DATA&gt;&lt;MATRIX id=&quot;0&quot; name=&quot;WORLD&quot;&gt;&lt;ROWS&gt;&lt;ROW id=&quot;0&quot;&gt;&lt;COL id=&quot;0&quot;&gt;1.0000001192092896&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;-0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;1&quot;&gt;&lt;COL id=&quot;0&quot;&gt;-0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.15731291472911835&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-0.9875490665435791&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;2&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.9875489473342896&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.15731294453144073&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;3&quot;&gt;&lt;COL id=&quot;0&quot;&gt;-2.2218754291534424&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;1.0432207584381104&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-13.561348915100098&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;1.0&lt;/COL&gt;&lt;/ROW&gt;&lt;/ROWS&gt;&lt;/MATRIX&gt;&lt;MATRIX id=&quot;0&quot; name=&quot;PROJECTION&quot;&gt;&lt;ROWS&gt;&lt;ROW id=&quot;0&quot;&gt;&lt;COL id=&quot;0&quot;&gt;2.777777671813965&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;1&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;2.777777671813965&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;2&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-1.0020020008087158&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;-1.0&lt;/COL&gt;&lt;/ROW&gt;&lt;ROW id=&quot;3&quot;&gt;&lt;COL id=&quot;0&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;1&quot;&gt;0.0&lt;/COL&gt;&lt;COL id=&quot;2&quot;&gt;-0.20020020008087158&lt;/COL&gt;&lt;COL id=&quot;3&quot;&gt;0.0&lt;/COL&gt;&lt;/ROW&gt;&lt;/ROWS&gt;&lt;/MATRIX&gt;&lt;/BL_CAMERA&gt;|">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" pintype="Configuration" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" pintype="Configuration" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" pintype="Configuration" values="-1">
+   </PIN>
+   <BOUNDS type="Window" left="0" top="0" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Tag" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Pin Visibility" pintype="Configuration" slicecount="1" values="True">
+   </PIN>
+   <PIN pinname="SliceCount Mode" pintype="Configuration" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Columns" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Rows" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Pages" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show SliceIndex" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Font" pintype="Configuration" slicecount="1" values="|Lucida Sans Unicode|">
+   </PIN>
+   <PIN pinname="Size" pintype="Configuration" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Show Grid" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" pintype="Configuration" slicecount="1" values="String">
+   </PIN>
+   <PIN pinname="Show Characters [#0..#32,#127]" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="SliceOffset" pintype="Input" visible="-1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Evaluate" pintype="Input" visible="-1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Changed" pintype="Output" visible="-1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="47">
+   <BOUNDS type="Box" left="2790" top="4740" width="1080" height="795">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2790" top="4740" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" visible="1" values="|1.00000,0.43993,0.44527,1.00000|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Color Output" dstnodeid="8" dstpinname="Color">
+   </LINK>
+   </PATCH>
