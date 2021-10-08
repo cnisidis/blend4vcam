@@ -82,8 +82,8 @@ class Blend4vcam_OT_Operator(bpy.types.Operator):
         print("Multiple Files:", bMultipleF)
         print("WriteToTextBlock:", bTextBlock)
         #Exporter check
-        self.exporter.isAlive()
-
+        #self.exporter.isAlive()
+        self.exporter.ToXML()
         #check if camera is selected
 
         #check if textblock is selected
